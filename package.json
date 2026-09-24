@@ -1,0 +1,30 @@
+{
+  "name": "africa-power-advisory-holdings",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"node server/server.mjs\"",
+    "dev:client": "vite",
+    "dev:server": "node server/server.mjs",
+    "build": "vite build && npm run check:placeholders",
+    "start": "node server/server.mjs",
+    "preview": "vite preview",
+    "check:placeholders": "node tests/check-placeholders.mjs",
+    "check:links": "node tests/check-links.mjs",
+    "check": "npm run build && npm run check:links",
+    "test:e2e": "playwright test",
+    "audit": "npm audit --audit-level=high"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "concurrently": "^9.2.1",
+    "vite": "^7.1.7"
+  }
+}
